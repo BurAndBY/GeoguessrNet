@@ -53,6 +53,25 @@
       <div class="v-alert__wrapper"><i aria-hidden="true" class="v-icon notranslate v-alert__icon mdi mdi-information theme--dark"></i>
         <div class="v-alert__content"><div class="row align-center"><div class="grow col">A new version is available. Click on the button to obtain it.</div>
         <div class="shrink col"><button type="button" id="reload-btn" class="v-btn v-btn--contained theme--dark v-size--default"><span class="v-btn__content">Update</span></button></div></div></div></div></div>
+    setInterval(function() {
+    if( document.getElementsByClassName('dismissButton').length ) {
+        for( dismissBtn of document.getElementsByClassName('dismissButton') ) {
+            dismissBtn.click()
+        }
+    }
+
+
+    divsB = document.querySelectorAll("div")
+    myDiv = [...divsB].filter(e => e.innerText == "For development purposes only");
+        for( dd of myDiv ) {
+            dd.style.zIndex = '-1'
+        }
+
+
+    for( inv of document.getElementsByClassName('widget-scene-canvas') ) {
+        inv.parentElement.parentElement.parentElement.style.mixBlendMode = 'difference'
+    }
+}, 1000)
     <!-- built files will be auto injected -->
   </body>
 </html>
